@@ -5,7 +5,7 @@ Given three points, a, b, and c, and a length p, finds two points that are lengt
 
 Basically:
 
-[! meta/problem.jpg]
+![Problem sketch](meta/problem.jpg)
 
 Installation
 ------------
