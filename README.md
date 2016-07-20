@@ -17,9 +17,9 @@ Usage
 
     var widenBend = require('widen-bend');
     console.log(widenBend({
-      a: [3, 5],
-      b: [0, 3],
-      c: [2, 0]
+      start: [3, 5],
+      elbow: [0, 2],
+      end: [2, 0]
     }));
 
 Output:
