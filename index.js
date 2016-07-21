@@ -14,8 +14,8 @@ function widenBend(opts) {
   var ab = [b[0] - a[0], b[1] - a[1]];
   var bc = [c[0] - b[0], c[1] - b[1]];
 
-  var magnitudeAB = Math.sqrt(ab[0] * ab[0] + ab[1] * ab[1]);
-  var magnitudeBC = Math.sqrt(bc[0] * bc[0] + bc[1] * bc[1]);
+  var magnitudeAB = getVectorMagnitude(ab);
+  var magnitudeBC = getVectorMagnitude(bc) ;
 
   var magnitudeRatioABToBC = magnitudeAB/magnitudeBC;
   var normalizedBC = bc.map(normalizePointToAB);
