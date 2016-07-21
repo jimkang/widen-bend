@@ -11,27 +11,27 @@ function widenBend(opts) {
     p = opts.widenDistance;
   }
 
-  var ab = [b[0] - a[0], b[1] - a[1]];
-  var bc = [c[0] - b[0], c[1] - b[1]];
+  var ab = subtractPairs(b, a);
+  var bc = subtractPairs(c, b);
 
   var magnitudeAB = getVectorMagnitude(ab);
   var magnitudeBC = getVectorMagnitude(bc) ;
 
   var magnitudeRatioABToBC = magnitudeAB/magnitudeBC;
   var normalizedBC = bc.map(normalizePointToAB);
-  var cPrime = [b[0] + normalizedBC[0], b[1] + normalizedBC[1]];
+  var cPrime = addPairs(b, normalizedBC);
 
-  var acPrime = [cPrime[0] - a[0], cPrime[1] - a[1]];
-  var ePrime = [a[0] + acPrime[0]/2, a[1] + acPrime[1]/2];
-  var bePrime = [ePrime[0] - b[0], ePrime[1] - b[1]];
+  var acPrime = subtractPairs(cPrime, a);
+  var ePrime = addPairs(a, multiplyPairBySingleValue(acPrime, 0.5));
+  var bePrime = subtractPairs(ePrime, b);
   var magnitudeBToEPrime = getVectorMagnitude(bePrime);
 
-  var be = [bePrime[0]/magnitudeBToEPrime * p, bePrime[1]/magnitudeBToEPrime * p];
-
+  var be = multiplyPairBySingleValue(bePrime, p/magnitudeBToEPrime);
   var e = addPairs(b, be);
 
-  var eb = [-1 * be[0], -1 * be[1]];
+  var eb = multiplyPairBySingleValue(be, -1);
   var d = addPairs(b, eb);
+
   return [d, e];
 
   // TODO: Update approach.jpg.
@@ -47,6 +47,14 @@ function getVectorMagnitude(v) {
 
 function addPairs(a, b) {
   return [a[0] + b[0], a[1] + b[1]];
+}
+
+function subtractPairs(a, b) {
+  return [a[0] - b[0], a[1] - b[1]];
+}
+
+function multiplyPairBySingleValue(pair, single) {
+  return [pair[0] * single, pair[1] * single];
 }
 
 module.exports = widenBend;
