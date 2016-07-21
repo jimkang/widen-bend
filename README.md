@@ -35,6 +35,8 @@ Tests
 
 Run tests with `make test`.
 
+Tests and tools require Node 6. Module itself should work in all versions of Node and modern browsers.
+
 License
 -------
 
