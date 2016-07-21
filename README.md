@@ -19,7 +19,8 @@ Usage
     console.log(widenBend({
       start: [3, 5],
       elbow: [0, 2],
-      end: [2, 0]
+      end: [2, 0],
+      widenDistance: 2
     }));
 
 Output:

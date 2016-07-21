@@ -10,8 +10,8 @@ var testCases = [
       widenDistance: 2
     },
     expected: [
-      [],
-      []
+      [-2, 2],
+      [2, 2]
     ]
   }
 ];
