@@ -59,8 +59,8 @@ var testCases = [
       widenDistance: 80
     },
     expected: [
-      [128.976, 4.235],
-      [65.024, 1.765]
+      [46.569, -66.569],
+      [-66.569, 46.569]    
     ]
   }
 ];
@@ -104,12 +104,26 @@ function runTest(testCase, done) {
 function writeOutHTMLFragments() {
   const html = `<html>
   <head>
+    <title>Result graphs of basictests.js</title>
     <style>
-      path {
-        fill: none;
-        stroke: black;
-        stroke-width: 1;
-      }
+        path {
+          fill: none;
+          stroke-width: 1;
+        }
+
+        .original-line {
+          stroke: #333;
+        }
+
+        .widen-line {
+          stroke: hsl(327, 69%, 48%);
+          stroke-dashoffset: 10;
+          stroke-dasharray: 3, 2;
+        }
+
+        .widen-point {
+          fill: hsla(327, 80%, 50%, 0.8);
+        }
     </style>
   </head>
 

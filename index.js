@@ -13,7 +13,6 @@ function widenBend(opts) {
 
   var ab = subtractPairs(b, a);
   var bc = subtractPairs(c, b);
-debugger;
   var magnitudeAB = getVectorMagnitude(ab);
   var magnitudeBC = getVectorMagnitude(bc) ;
 
@@ -24,15 +23,12 @@ debugger;
   var acPrime = subtractPairs(cPrime, a);
   var ePrime = addPairs(a, multiplyPairBySingleValue(acPrime, 0.5));
   var bePrime = subtractPairs(ePrime, b);
-  var magnitudeBToEPrime = getVectorMagnitude(bePrime);
-
   var be;
-
-  if (magnitudeBToEPrime === 0) {
-    ab
+  if (bePrime[0] === 0 && bePrime[1] === 0) {
+    be = changeVectorMagnitude(getPerpendicularVector(ab), p);
   }
   else {
-    be = multiplyPairBySingleValue(bePrime, p/magnitudeBToEPrime);
+    be = changeVectorMagnitude(bePrime, p);
   }
 
   var e = addPairs(b, be);
@@ -63,6 +59,15 @@ function subtractPairs(a, b) {
 
 function multiplyPairBySingleValue(pair, single) {
   return [pair[0] * single, pair[1] * single];
+}
+
+function getPerpendicularVector(v) {
+  return [-v[1], v[0]];
+}
+
+function changeVectorMagnitude(v, newMagnitude) {
+  var currentMagnitude = getVectorMagnitude(v);
+  return multiplyPairBySingleValue(v, newMagnitude/currentMagnitude);
 }
 
 module.exports = widenBend;

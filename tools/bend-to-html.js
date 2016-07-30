@@ -40,8 +40,10 @@ function bendToHTML(opts, done) {
   return `  <p>${title}</p>
     <svg width="${boardWidth}" height="${boardHeight}">
       <g transform="matrix(${matrixPoints.join(' ')})">
-        <path d=${getBendPath(bendProperties)}></path>
-        <path d=${line(widenPoints)}></path>
+        <path d=${getBendPath(bendProperties)} class="original-line"></path>
+        <path d=${line(widenPoints)} class="widen-line"></path>
+        <circle r="1" cx="${widenPoints[0][0]}" cy="${widenPoints[0][1]}" class="widen-point"></circle>
+        <circle r="1" cx="${widenPoints[1][0]}" cy="${widenPoints[1][1]}" class="widen-point"></circle>
       </g>
     </svg>
     `;
