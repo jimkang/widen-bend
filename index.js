@@ -13,7 +13,7 @@ function widenBend(opts) {
 
   var ab = subtractPairs(b, a);
   var bc = subtractPairs(c, b);
-
+debugger;
   var magnitudeAB = getVectorMagnitude(ab);
   var magnitudeBC = getVectorMagnitude(bc) ;
 
@@ -26,7 +26,15 @@ function widenBend(opts) {
   var bePrime = subtractPairs(ePrime, b);
   var magnitudeBToEPrime = getVectorMagnitude(bePrime);
 
-  var be = multiplyPairBySingleValue(bePrime, p/magnitudeBToEPrime);
+  var be;
+
+  if (magnitudeBToEPrime === 0) {
+    ab
+  }
+  else {
+    be = multiplyPairBySingleValue(bePrime, p/magnitudeBToEPrime);
+  }
+
   var e = addPairs(b, be);
 
   var eb = multiplyPairBySingleValue(be, -1);
