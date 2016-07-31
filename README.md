@@ -17,18 +17,22 @@ Usage
 
     var widenBend = require('widen-bend');
     console.log(widenBend({
-      start: [3, 5],
-      elbow: [0, 2],
-      end: [2, 0],
-      widenDistance: 2
+      start: [30, 50],
+      elbow: [0, 20],
+      end: [20, 0],
+      widenDistance: 20
     }));
 
 Output:
 
-      [
-        [something, something],
-        [something, something]
-      ]
+    [
+      [-20, 20],
+      [20, 20]
+    ]
+
+A graph of the bend with the resulting widen points:
+
+![Example graph](https://https://raw.githubusercontent.com/jimkang/widen-bend/master/meta/example-case.png)
 
 Tests
 -----
