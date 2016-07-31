@@ -60,7 +60,21 @@ var testCases = [
     },
     expected: [
       [46.569, -66.569],
-      [-66.569, 46.569]    
+      [-66.569, 46.569]
+    ]
+  },
+
+  {
+    name: 'Completely collapsed',
+    opts: {
+      start: [20, 20],
+      elbow: [-20, -20],
+      end: [20, 20],
+      widenDistance: 20
+    },
+    expected: [
+      [-34.142, -34.142],
+      [-5.858, -5.858]
     ]
   }
 ];
@@ -106,6 +120,10 @@ function writeOutHTMLFragments() {
   <head>
     <title>Result graphs of basictests.js</title>
     <style>
+        body {
+          font-family: "Helvetica Neue", sans-serif;
+        }
+
         path {
           fill: none;
           stroke-width: 1;
