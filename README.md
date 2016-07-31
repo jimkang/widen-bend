@@ -32,7 +32,7 @@ Output:
 
 A graph of the bend with the resulting widen points:
 
-![Example graph](https://https://raw.githubusercontent.com/jimkang/widen-bend/master/meta/example-case.png)
+![Example graph](https://raw.githubusercontent.com/jimkang/widen-bend/master/meta/example-case.png)
 
 Tests
 -----
